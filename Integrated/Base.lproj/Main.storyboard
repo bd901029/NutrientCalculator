@@ -31,7 +31,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcy-3s-OwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-859" y="163"/>
+            <point key="canvasLocation" x="-988" y="161"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="YEf-hl-kUb">
@@ -64,15 +64,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrients Calculator" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-mn-TnT">
-                                <rect key="frame" x="100" y="64" width="214" height="38.333333333333343"/>
+                                <rect key="frame" x="73.666666666666686" y="64" width="267" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBold" family="Futura" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7l-I7-H72">
-                                <rect key="frame" x="20" y="122.33333333333331" width="374" height="518.66666666666674"/>
+                                <rect key="frame" x="20" y="119" width="374" height="522"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Nutrition is the science of food and its relationship to health. Nutrients are chemicals in foods that are used by the body for growth, maintenance, and energy.
+                                <string key="text">Nutrition is the science of food and its relationship to health. Nutrients are chemicals in foods that are used by the body for growth, maintenance, and energy.
 
 Nutrients that cannot be synthesized by the body and thus must be derived from the diet are considered essential. They include
 
@@ -87,7 +87,7 @@ Macronutrients are required by the body in relatively large amounts; micronutrie
 
 Lack of nutrients can result in undernutrition, which can lead to deficiency syndromes (eg, kwashiorkor, pellagra). Excess intake of macronutrients can lead to obesity and related disorders; excess intake of micronutrients can be toxic. Also, the balance of various types of nutrients, such as how much unsaturated vs saturated fat is consumed, can influence the development of disorders.
 
-</mutableString>
+</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="FuturaCondMedium" family="Futura Condensed" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -117,6 +117,46 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
             </objects>
             <point key="canvasLocation" x="-126" y="162"/>
         </scene>
+        <!--SplashVC-->
+        <scene sceneID="Ego-13-B4P">
+            <objects>
+                <viewController storyboardIdentifier="SplashVC" id="enc-av-Coy" customClass="SplashVC" customModule="Integrated" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PtO-8X-7Cb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oJp-0Q-SNn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVd-g5-p7X">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="enc-av-Coy" id="avg-Gf-uvi"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oJp-0Q-SNn" firstAttribute="trailing" secondItem="PtO-8X-7Cb" secondAttribute="trailing" id="CqF-xz-PqL"/>
+                            <constraint firstAttribute="trailing" secondItem="dVd-g5-p7X" secondAttribute="trailing" id="QsO-fX-XmL"/>
+                            <constraint firstItem="oJp-0Q-SNn" firstAttribute="bottom" secondItem="PtO-8X-7Cb" secondAttribute="bottom" id="UAr-ei-SSh"/>
+                            <constraint firstItem="oJp-0Q-SNn" firstAttribute="leading" secondItem="PtO-8X-7Cb" secondAttribute="leading" id="XaT-lk-n9w"/>
+                            <constraint firstItem="dVd-g5-p7X" firstAttribute="leading" secondItem="PtO-8X-7Cb" secondAttribute="leading" id="YJw-1R-4kk"/>
+                            <constraint firstItem="dVd-g5-p7X" firstAttribute="bottom" secondItem="PtO-8X-7Cb" secondAttribute="bottom" id="acg-aX-MdT"/>
+                            <constraint firstItem="dVd-g5-p7X" firstAttribute="top" secondItem="PtO-8X-7Cb" secondAttribute="top" id="bxu-ln-WrE"/>
+                            <constraint firstItem="oJp-0Q-SNn" firstAttribute="top" secondItem="PtO-8X-7Cb" secondAttribute="top" id="n48-Cq-bOp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cQK-8S-U3A"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="dVd-g5-p7X" id="vPl-mB-GeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zm2-8s-pDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126.08695652173914" y="865.76086956521749"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="6fa-vg-ieF">
             <objects>
@@ -129,13 +169,13 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrients Calculator" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9i0-fi-Ubo">
-                                <rect key="frame" x="100" y="64" width="214" height="38.333333333333343"/>
+                                <rect key="frame" x="73.666666666666686" y="64" width="267" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBold" family="Futura" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e4Z-Gr-ZJq">
-                                <rect key="frame" x="20" y="192.33333333333334" width="374" height="398.66666666666663"/>
+                                <rect key="frame" x="20" y="189" width="374" height="358"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" id="J85-OZ-v5e" customClass="FoodCell" customModule="Integrated" customModuleProvider="target">
@@ -153,13 +193,13 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQI-Lc-Orz">
-                                                    <rect key="frame" x="60" y="11" width="269.33333333333331" height="38"/>
+                                                    <rect key="frame" x="60" y="11" width="261.66666666666669" height="38"/>
                                                     <fontDescription key="fontDescription" name="FuturaCondMedium" family="Futura Condensed" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReV-dc-S8a">
-                                                    <rect key="frame" x="339.33333333333331" y="10" width="14.666666666666686" height="40"/>
+                                                    <rect key="frame" x="331.66666666666669" y="10" width="22.333333333333314" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="IxM-3i-gE8"/>
                                                     </constraints>
@@ -211,7 +251,7 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfM-hM-ETZ">
-                                <rect key="frame" x="138" y="132.33333333333334" width="138" height="40"/>
+                                <rect key="frame" x="117.66666666666669" y="129" width="179" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="N73-OR-jmO"/>
                                 </constraints>
@@ -239,10 +279,22 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                                     <action selector="onDoneBtnClicked:" destination="AIz-9k-wY3" eventType="touchUpInside" id="FLG-Cw-l8W"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-63-FFI">
+                                <rect key="frame" x="20" y="547" width="374" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="aNd-FE-S1P"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NUp-dp-huL" id="R3F-cx-0ku"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JSp-85-jyc" firstAttribute="trailing" secondItem="3Zc-1q-gdB" secondAttribute="trailing" constant="50" id="50x-9H-sPL"/>
+                            <constraint firstAttribute="trailing" secondItem="W2S-63-FFI" secondAttribute="trailing" constant="20" id="7mK-4Y-2Ir"/>
                             <constraint firstItem="zCT-cG-9vm" firstAttribute="top" secondItem="3Zc-1q-gdB" secondAttribute="bottom" constant="10" id="8Xu-TJ-i34"/>
                             <constraint firstItem="JSp-85-jyc" firstAttribute="trailing" secondItem="e4Z-Gr-ZJq" secondAttribute="trailing" constant="20" id="Aab-5z-ATd"/>
                             <constraint firstItem="e4Z-Gr-ZJq" firstAttribute="leading" secondItem="JSp-85-jyc" secondAttribute="leading" constant="20" id="ILP-Ix-FpH"/>
@@ -250,13 +302,15 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                             <constraint firstItem="6LJ-t0-LZ1" firstAttribute="leading" secondItem="JSp-85-jyc" secondAttribute="leading" id="Prt-zU-wPv"/>
                             <constraint firstItem="9i0-fi-Ubo" firstAttribute="centerX" secondItem="QmH-IX-ox3" secondAttribute="centerX" id="Rmj-fs-Wln"/>
                             <constraint firstItem="JSp-85-jyc" firstAttribute="trailing" secondItem="zCT-cG-9vm" secondAttribute="trailing" constant="50" id="UOF-Sa-m9O"/>
-                            <constraint firstItem="3Zc-1q-gdB" firstAttribute="top" secondItem="e4Z-Gr-ZJq" secondAttribute="bottom" constant="20" id="W2A-ps-qKe"/>
+                            <constraint firstItem="3Zc-1q-gdB" firstAttribute="top" secondItem="e4Z-Gr-ZJq" secondAttribute="bottom" constant="64" id="W2A-ps-qKe"/>
                             <constraint firstItem="6LJ-t0-LZ1" firstAttribute="trailing" secondItem="JSp-85-jyc" secondAttribute="trailing" id="Ziw-d2-0rQ"/>
                             <constraint firstItem="3Zc-1q-gdB" firstAttribute="leading" secondItem="JSp-85-jyc" secondAttribute="leading" constant="50" id="cRt-xf-9pS"/>
                             <constraint firstItem="6LJ-t0-LZ1" firstAttribute="bottom" secondItem="JSp-85-jyc" secondAttribute="bottom" id="eio-3S-pSF"/>
                             <constraint firstItem="hfM-hM-ETZ" firstAttribute="top" secondItem="9i0-fi-Ubo" secondAttribute="bottom" constant="30" id="n4F-eQ-p7y"/>
+                            <constraint firstItem="W2S-63-FFI" firstAttribute="leading" secondItem="JSp-85-jyc" secondAttribute="leading" constant="20" id="p9e-Lb-vhI"/>
                             <constraint firstItem="hfM-hM-ETZ" firstAttribute="centerX" secondItem="QmH-IX-ox3" secondAttribute="centerX" id="pOR-sl-9LE"/>
                             <constraint firstItem="9i0-fi-Ubo" firstAttribute="top" secondItem="QmH-IX-ox3" secondAttribute="top" constant="64" id="rvn-TH-khG"/>
+                            <constraint firstItem="3Zc-1q-gdB" firstAttribute="top" secondItem="W2S-63-FFI" secondAttribute="bottom" constant="20" id="tB0-kI-tgM"/>
                             <constraint firstItem="6LJ-t0-LZ1" firstAttribute="top" secondItem="QmH-IX-ox3" secondAttribute="top" id="v8B-qg-8HF"/>
                             <constraint firstItem="zCT-cG-9vm" firstAttribute="leading" secondItem="JSp-85-jyc" secondAttribute="leading" constant="50" id="w9b-4M-e5g"/>
                             <constraint firstItem="e4Z-Gr-ZJq" firstAttribute="top" secondItem="hfM-hM-ETZ" secondAttribute="bottom" constant="20" id="xvg-bD-q9f"/>
@@ -264,6 +318,7 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                         <viewLayoutGuide key="safeArea" id="JSp-85-jyc"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="W2S-63-FFI" id="X5u-qq-uBo"/>
                         <outlet property="tableView" destination="e4Z-Gr-ZJq" id="b9t-Xu-3ME"/>
                         <outlet property="totalCaloriesView" destination="hfM-hM-ETZ" id="Q9b-11-fyb"/>
                     </connections>
@@ -283,14 +338,39 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Jlh-0R-eV7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dj5-BU-T81" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="57" y="218" width="300" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3VK-ef-jez">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="2f2-bu-4yt"/>
-                                    <constraint firstAttribute="width" constant="300" id="r5f-2I-vyt"/>
-                                </constraints>
-                            </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="jGQ-0c-Jkg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dj5-BU-T81" customClass="PieChartView" customModule="Charts">
+                                            <rect key="frame" x="57" y="60" width="300" height="300"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="Nie-TE-2Ww"/>
+                                                <constraint firstAttribute="height" constant="300" id="YCn-Zf-u2j"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWE-gV-7If" customClass="ViewPager" customModule="Integrated" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="400" width="414" height="560"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="560" id="WPA-v1-gKS"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="dj5-BU-T81" firstAttribute="centerX" secondItem="jGQ-0c-Jkg" secondAttribute="centerX" id="EAL-wl-3rw"/>
+                                        <constraint firstItem="CWE-gV-7If" firstAttribute="leading" secondItem="jGQ-0c-Jkg" secondAttribute="leading" id="lm3-fN-ilh"/>
+                                        <constraint firstAttribute="trailing" secondItem="CWE-gV-7If" secondAttribute="trailing" id="m51-ZR-5iA"/>
+                                        <constraint firstItem="dj5-BU-T81" firstAttribute="top" secondItem="jGQ-0c-Jkg" secondAttribute="top" constant="60" id="n2Q-SV-ufT"/>
+                                        <constraint firstItem="CWE-gV-7If" firstAttribute="top" secondItem="dj5-BU-T81" secondAttribute="bottom" constant="40" id="vgn-ou-ZA9"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN9-Yw-kzv" customClass="CustomButton" customModule="Integrated" customModuleProvider="target">
                                 <rect key="frame" x="50" y="661" width="314" height="40"/>
                                 <constraints>
@@ -313,13 +393,15 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3VK-ef-jez" firstAttribute="leading" secondItem="nvb-is-10c" secondAttribute="leading" id="0SF-Bd-sd0"/>
                             <constraint firstItem="Jlh-0R-eV7" firstAttribute="leading" secondItem="p5X-zA-4RQ" secondAttribute="leading" id="Bfb-Em-des"/>
                             <constraint firstItem="p5X-zA-4RQ" firstAttribute="trailing" secondItem="nN9-Yw-kzv" secondAttribute="trailing" constant="50" id="Dii-ew-hn1"/>
                             <constraint firstItem="Jlh-0R-eV7" firstAttribute="top" secondItem="nvb-is-10c" secondAttribute="top" id="GXy-Ca-Txb"/>
-                            <constraint firstItem="dj5-BU-T81" firstAttribute="centerY" secondItem="nvb-is-10c" secondAttribute="centerY" id="UfO-y9-1WH"/>
+                            <constraint firstItem="3VK-ef-jez" firstAttribute="trailing" secondItem="nvb-is-10c" secondAttribute="trailing" id="TBB-FO-vSJ"/>
+                            <constraint firstItem="3VK-ef-jez" firstAttribute="bottom" secondItem="nvb-is-10c" secondAttribute="bottom" constant="-120" id="VcX-E0-m2E"/>
                             <constraint firstItem="nN9-Yw-kzv" firstAttribute="leading" secondItem="p5X-zA-4RQ" secondAttribute="leading" constant="50" id="WPI-uL-pqE"/>
                             <constraint firstItem="p5X-zA-4RQ" firstAttribute="bottom" secondItem="nN9-Yw-kzv" secondAttribute="bottom" constant="35" id="ZzY-SO-oxN"/>
-                            <constraint firstItem="dj5-BU-T81" firstAttribute="centerX" secondItem="nvb-is-10c" secondAttribute="centerX" id="cfy-yd-sRM"/>
+                            <constraint firstItem="3VK-ef-jez" firstAttribute="top" secondItem="nvb-is-10c" secondAttribute="top" id="dx9-kk-ms7"/>
                             <constraint firstItem="Jlh-0R-eV7" firstAttribute="bottom" secondItem="p5X-zA-4RQ" secondAttribute="bottom" id="vIQ-5b-aez"/>
                             <constraint firstItem="Jlh-0R-eV7" firstAttribute="trailing" secondItem="p5X-zA-4RQ" secondAttribute="trailing" id="xXa-5L-nmx"/>
                         </constraints>
@@ -327,11 +409,12 @@ Lack of nutrients can result in undernutrition, which can lead to deficiency syn
                     </view>
                     <connections>
                         <outlet property="chartView" destination="dj5-BU-T81" id="axa-Ue-RKE"/>
+                        <outlet property="viewPager" destination="CWE-gV-7If" id="ldm-of-OwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yr-RI-0E8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464" y="161"/>
+            <point key="canvasLocation" x="1462.3188405797102" y="160.59782608695653"/>
         </scene>
     </scenes>
     <resources>

@@ -1,0 +1,30 @@
+
+/* Class = "UIButton"; normalTitle = "Add Food"; ObjectID = "3Zc-1q-gdB"; */
+"3Zc-1q-gdB.normalTitle" = "Add Food";
+
+/* Class = "UILabel"; text = "Nutrients Calculator"; ObjectID = "9i0-fi-Ubo"; */
+"9i0-fi-Ubo.text" = "Nutrients Calculator";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LQI-Lc-Orz"; */
+"LQI-Lc-Orz.text" = "Label";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "ReV-dc-S8a"; */
+"ReV-dc-S8a.text" = "10";
+
+/* Class = "UILabel"; text = "Nutrients Calculator"; ObjectID = "gLa-mn-TnT"; */
+"gLa-mn-TnT.text" = "Nutrients Calculator";
+
+/* Class = "UILabel"; text = "Total Calories: 0"; ObjectID = "hfM-hM-ETZ"; */
+"hfM-hM-ETZ.text" = "Total Calories: 0";
+
+/* Class = "UIButton"; normalTitle = "Go Back"; ObjectID = "nN9-Yw-kzv"; */
+"nN9-Yw-kzv.normalTitle" = "Go Back";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "pYk-Gt-y1V"; */
+"pYk-Gt-y1V.normalTitle" = "Done";
+
+/* Class = "UITextView"; text = "Nutrition is the science of food and its relationship to health. Nutrients are chemicals in foods that are used by the body for growth, maintenance, and energy.\n\nNutrients that cannot be synthesized by the body and thus must be derived from the diet are considered essential. They include\n\nVitamins\nMinerals\nSome amino acids\nSome fatty acids\n\nNutrients that the body can synthesize from other compounds, although they may also be derived from the diet, are considered nonessential.\n\nMacronutrients are required by the body in relatively large amounts; micronutrients are needed in minute amounts.\n\nLack of nutrients can result in undernutrition, which can lead to deficiency syndromes (eg, kwashiorkor, pellagra). Excess intake of macronutrients can lead to obesity and related disorders; excess intake of micronutrients can be toxic. Also, the balance of various types of nutrients, such as how much unsaturated vs saturated fat is consumed, can influence the development of disorders.\n\n"; ObjectID = "z7l-I7-H72"; */
+"z7l-I7-H72.text" = "Nutrition is the science of food and its relationship to health. Nutrients are chemicals in foods that are used by the body for growth, maintenance, and energy.\n\nNutrients that cannot be synthesized by the body and thus must be derived from the diet are considered essential. They include\n\nVitamins\nMinerals\nSome amino acids\nSome fatty acids\n\nNutrients that the body can synthesize from other compounds, although they may also be derived from the diet, are considered nonessential.\n\nMacronutrients are required by the body in relatively large amounts; micronutrients are needed in minute amounts.\n\nLack of nutrients can result in undernutrition, which can lead to deficiency syndromes (eg, kwashiorkor, pellagra). Excess intake of macronutrients can lead to obesity and related disorders; excess intake of micronutrients can be toxic. Also, the balance of various types of nutrients, such as how much unsaturated vs saturated fat is consumed, can influence the development of disorders.\n\n";
+
+/* Class = "UIButton"; normalTitle = "Graph"; ObjectID = "zCT-cG-9vm"; */
+"zCT-cG-9vm.normalTitle" = "Graph";

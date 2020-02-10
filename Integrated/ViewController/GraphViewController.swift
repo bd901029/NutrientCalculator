@@ -9,11 +9,17 @@
 import UIKit
 import Charts
 
-class GraphViewController: UIViewController {
+class GraphViewController: BaseViewController {
 
 	@IBOutlet weak var chartView: PieChartView!
+	@IBOutlet weak var viewPager: ViewPager!
 	
 	var foods = [Food]()
+	var pageViews: [UIView] = [AnalysisVitaminView.create(),
+					 AnalysisMineralsView.create(),
+					 AnalysisCarbohydratesView.create(),
+					 AnalysisProteinsView.create(),
+					 AnalysisFatsView.create()]
 	
 	static func instance() -> GraphViewController {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -44,6 +50,9 @@ class GraphViewController: UIViewController {
 		self.chartView.holeColor = UIColor.clear
 		self.chartView.legend.enabled = true
 		self.chartView.entryLabelColor = UIColor.white
+		
+		viewPager.dataSource = self
+		viewPager.delegate = self
 	}
 
 	func updateUI() {
@@ -90,5 +99,22 @@ extension GraphViewController: IValueFormatter {
 			return "0%"
 		}
 		return String(format: "%d", Int(value + 0.5)) + "%" + "\n" + "\(entry.data as! String)"
+	}
+}
+
+
+extension GraphViewController: ViewPagerDataSource, ViewPagerDelegate {
+	func numberOfItems(viewPager:ViewPager) -> Int {
+		return 5;
+	}
+	
+	func viewAtIndex(viewPager: ViewPager, index: Int, view: UIView?) -> UIView {
+		let view = pageViews[index]
+		view.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
+		return view
+	}
+	
+	func viewPager(_ viewPager: ViewPager, didSelectedItem itemIndex: Int) {
+		viewPager.pageControl.currentPage = itemIndex
 	}
 }

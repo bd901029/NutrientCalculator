@@ -9,13 +9,15 @@
 import UIKit
 import PINRemoteImage
 import BarcodeScanner
+import AVFoundation
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
 	@IBOutlet weak var totalCaloriesView: UILabel!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var searchBar: UISearchBar!
 	
-	var foods = [Food]()
+	var searchResult: [Food]? = nil
 	
 	static func instance() -> HomeViewController {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -28,21 +30,16 @@ class HomeViewController: UIViewController {
     }
 
 	@IBAction func onAddFoodBtnClicked(_ sender: Any) {
-		let viewController = BarcodeScannerViewController()
-		viewController.codeDelegate = self
-		viewController.errorDelegate = self
-		viewController.dismissalDelegate = self
-		
-		present(viewController, animated: true, completion: nil)
+		openBarcodeScanner()
 	}
 	
 	@IBAction func onGraphBtnTapped(_ sender: UIButton) {
-		if self.foods.count <= 0 {
+		if DietaryManager.sharedInstance.foods.count <= 0 {
 			return
 		}
 		
 		let graphVC = GraphViewController.instance()
-		graphVC.foods = self.foods
+		graphVC.foods = DietaryManager.sharedInstance.foods
 		self.navigationController?.pushViewController(graphVC, animated: true)
 	}
 	
@@ -53,43 +50,64 @@ class HomeViewController: UIViewController {
 	func updateUI() {
 		tableView.reloadData()
 		
+		let foods = DietaryManager.sharedInstance.foods
 		var calories: Float = 0
-		for food in self.foods {
+		for food in foods {
 			calories		+= food.caloriesInKCal()		* Float(food.count)
 		}
 		totalCaloriesView.text = "Total Calories: \(Int(calories))"
 	}
 	
-	func addFood(_ food: Food) {
-		var contains = false
-		for tempFood in self.foods {
-			if tempFood.nixId() == food.nixId() {
-				tempFood.count += food.count
-				contains = true
-				break
+	func openBarcodeScanner() {
+		let cameraAccess = AVCaptureDevice.authorizationStatus(for: .video)
+		if cameraAccess == .authorized {
+			let viewController = BarcodeScannerViewController()
+			viewController.codeDelegate = self
+			viewController.errorDelegate = self
+			viewController.dismissalDelegate = self
+			present(viewController, animated: true, completion: nil)
+			return
+		}
+		
+		if cameraAccess == .denied || cameraAccess == .restricted {
+			AppDelegate.openSetting()
+			return
+		}
+		
+		AVCaptureDevice.requestAccess(for: .video) { granted in
+			if granted {
+				DispatchQueue.main.async {
+					self.openBarcodeScanner()
+				}
 			}
 		}
-		
-		if !contains {
-			self.foods.append(food)
-		}
-		
+	}
+	
+	func addFood(_ food: Food) {
+		DietaryManager.sharedInstance.addFood(food)
 		updateUI()
 	}
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.foods.count
+		return (self.searchResult != nil) ? self.searchResult!.count : DietaryManager.sharedInstance.foods.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = self.tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodCell
-		cell.food = self.foods[indexPath.row]
+		cell.food = (self.searchResult != nil) ? self.searchResult![indexPath.row] : DietaryManager.sharedInstance.foods[indexPath.row]
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if self.searchResult != nil {
+			let food = self.searchResult![indexPath.row]
+			self.addFood(food)
+			
+			self.searchBar.text = ""
+			self.view.endEditing(true)
+		}
 	}
 }
 
@@ -120,6 +138,33 @@ extension HomeViewController: BarcodeScannerCodeDelegate, BarcodeScannerErrorDel
 	
 	func scannerDidDismiss(_ controller: BarcodeScannerViewController) {
 		self.dismiss(animated: true, completion: nil)
+	}
+}
+
+extension HomeViewController: UISearchBarDelegate {
+	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+		self.searchResult = [Food]()
+		self.tableView.reloadData()
+		
+		return true
+	}
+	
+	func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+		self.searchResult = nil
+		self.tableView.reloadData()
+		
+		return true
+	}
+	
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		DietaryManager.sharedInstance.searchByName(self.searchBar.text!) { (results, error) in
+			if error != nil {
+				return
+			}
+			
+			self.searchResult = results as? [Food]
+			self.tableView.reloadData()
+		}
 	}
 }
 

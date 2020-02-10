@@ -8,6 +8,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Parse
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,11 +22,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		IQKeyboardManager.shared.enable = true
 
         UIApplication.shared.applicationIconBadgeNumber = 0
+		UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		
+		let parseConfig = ParseClientConfiguration {
+			$0.applicationId = "Rsgk5FiXY5dXiJJxYKO6wVFIbJIqzZoP1b8rYm0n"
+			$0.clientKey = "xQPCoGvj7DvMM7KZ4k8bVjomP5i9bP619fUa4xrd"
+			$0.server = "https://parseapi.back4app.com/"
+		}
+		Parse.initialize(with: parseConfig)
+		
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .carPlay ]) {
+			(granted, error) in
+			print("Permission granted: \(granted)")
+			guard granted else { return }
+			self.getNotificationSettings()
+		}
+		
+		AddressManager.sharedInstance.start()
 		
 		return true
 	}
 	
 	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		createInstallationOnParse(deviceTokenData: deviceToken)
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -48,5 +68,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
+	
+	func createInstallationOnParse(deviceTokenData: Data) {
+		if let installation = PFInstallation.current() {
+			installation.setDeviceTokenFrom(deviceTokenData)
+			installation.setObject(["News"], forKey: "channels")
+			installation.saveInBackground {
+				(success: Bool, error: Error?) in
+				if (success) {
+					print("You have successfully saved your push installation to Back4App!")
+				} else {
+					if let myError = error{
+						print("Error saving parse installation \(myError.localizedDescription)")
+					}else{
+						print("Uknown error")
+					}
+				}
+			}
+		}
+	}
+	
+	func getNotificationSettings() {
+		UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+			print("Notification settings: \(settings)")
+			guard settings.authorizationStatus == .authorized else { return }
+			DispatchQueue.main.async(execute: {
+				UIApplication.shared.registerForRemoteNotifications()
+			})
+		}
+	}
 }
 
+extension AppDelegate {
+	static func openSetting() {
+		DispatchQueue.main.async {
+			guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+				return
+			}
+			
+			if UIApplication.shared.canOpenURL(settingsUrl) {
+				UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+					print("Settings opened: \(success)") // Prints true
+				})
+			}
+		}
+	}
+}

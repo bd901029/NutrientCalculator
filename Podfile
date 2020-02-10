@@ -15,4 +15,9 @@ target 'Integrated' do
   pod 'IQKeyboardManagerSwift'
   pod 'PINRemoteImage'
   pod 'FSCalendar'
+
+  pod 'Parse'
+  pod 'Parse/UI'
+  pod 'ParseLiveQuery'
+
 end

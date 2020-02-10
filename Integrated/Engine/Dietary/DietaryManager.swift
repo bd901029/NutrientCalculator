@@ -118,4 +118,20 @@ class DietaryManager: ApiManager {
 			self.runCallback(callback, results, nil)
 		}
 	}
+	
+	var foods = [Food]()
+	func addFood(_ food: Food) {
+		var contains = false
+		for tempFood in self.foods {
+			if tempFood.nixId() == food.nixId() {
+				tempFood.count += food.count
+				contains = true
+				break
+			}
+		}
+		
+		if !contains {
+			self.foods.append(food)
+		}
+	}
 }

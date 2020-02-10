@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelpViewController: UIViewController {
+class HelpViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

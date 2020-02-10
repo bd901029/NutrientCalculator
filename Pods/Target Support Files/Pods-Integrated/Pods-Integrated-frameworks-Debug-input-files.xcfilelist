@@ -1,6 +1,8 @@
 ${PODS_ROOT}/Target Support Files/Pods-Integrated/Pods-Integrated-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/BarcodeScanner/BarcodeScanner.framework
+${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
 ${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
@@ -9,3 +11,6 @@ ${BUILT_PRODUCTS_DIR}/LMSideBarController/LMSideBarController.framework
 ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework
 ${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework
+${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
+${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework
+${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework
